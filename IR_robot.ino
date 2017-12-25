@@ -1,30 +1,30 @@
-int left_sensor = 0;                                             //variable for left sensor
-int right_sensor = 0;                                            //variable for right sensor
-int value;                                                       //variable for temporary value
-//int corner;                                                    // state variable for corner situation 
-int pmw = 150;
+int left_sensor = 0;  //variable for left sensor
+int right_sensor = 0; //variable for right sensor
+int value;            //variable for temporary value
+//int corner;         // state variable for corner situation 
+int pmw = 150;	     //variable for Pulse Width Modulation for Motors
 
 void setup()
 {
-  pinMode(11, OUTPUT);                                         //setting the digital pins to output mode for 11
-  pinMode(10, OUTPUT);                                          //contorlling the motor  driver 
+  pinMode(11, OUTPUT);    //setting the digital pins to output mode for 11
+  pinMode(10, OUTPUT);   //contorlling the motor  driver 
   pinMode(9, OUTPUT);    
   pinMode(6, OUTPUT);
-  pinMode(4, OUTPUT);
-  pinMode(3, OUTPUT);
+  pinMode(4, OUTPUT);   //setting the output for LED 1
+  pinMode(3, OUTPUT);   //setting the output fo LED 2
   Serial.begin(9600);
   
 }
 
 void loop(){
 
-  value = analogRead(0);                                    // reading the values returned from sensor                                                             
-  left_sensor = map(value, 4, 437, 0, 255);                 //     mapping it into a desirable range 
+  value = analogRead(0);   // reading the values returned from sensor                                                             
+  left_sensor = map(value, 4, 437, 0, 255);  //     mapping it into a desirable range 
   value = analogRead(1);
   right_sensor = map(value, 4, 429, 0, 255);
   
-  Serial.print(" Sensor Left  = ");                       // printing the values of both sensor into 
-  Serial.print(left_sensor);                              // serial monitor for inspection     
+  Serial.print(" Sensor Left  = ");          // printing the values of both sensor into 
+  Serial.print(left_sensor);                 // serial monitor for inspection     
   Serial.print(" Sensor Right = ");      
   Serial.println(right_sensor);
   
